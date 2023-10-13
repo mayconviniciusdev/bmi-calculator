@@ -4,10 +4,11 @@ import { CalculatorApplication } from "@/components/calculator";
 
 const Page = () => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container flex flex-col justify-center m-auto px-4 lg:h-screen">
       <Header/>
 
       <div className="flex-col lg:flex lg:flex-row ">
+      
         <CalculatorApplication/>
       </div>
     </div>
