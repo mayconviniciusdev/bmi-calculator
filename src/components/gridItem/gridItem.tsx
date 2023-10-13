@@ -6,7 +6,7 @@ type Props = { item: Weight}
 
 export const Grid = ({item}: Props) => {
   return (
-    <div className='flex flex-1 justify-center items-center flex-col p-24 text-white rounded-xl' style={{backgroundColor: item.color}}>
+    <div className='flex justify-center items-center flex-col p-14 text-white rounded-xl' style={{backgroundColor: item.color}}>
       <div className='w-20 h-20 rounded-full bg-black/5 flex justify-center items-center'>
         {item.icon === 'up' && 
         <Image

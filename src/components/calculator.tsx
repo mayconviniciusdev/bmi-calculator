@@ -22,7 +22,7 @@ export const CalculatorApplication = () => {
 
   return (
     <>
-      <div className="flex-1 mr-10">
+      <div className="flex-1 lg:mr-10 m-auto">
         <h1 className="text-4xl font-semibold text-slate-900">CALCULE SEU IMC!</h1>
         <div className="my-10 text-slate-500">
           <p>O IMC é um parâmetro utilizado para avaliar se seu peso está no valor ideal para a altura e seu cálculo não difere entre os sexos, pois o mesmo é calculado somente com peso e altura.</p>
@@ -55,18 +55,19 @@ export const CalculatorApplication = () => {
         </button>
       </div>
 
-      <div className="flex flex-1 ml-10 justify-center items-center" >
+      <div className="flex flex-1 py-10 justify-center items-center lg:ml-10 lg:p-0" >
         {!toShow &&
-          <div className='grid gap-5 grid-cols-2'>
+          <div className='grid flex-1 gap-5 grid-cols-1 md:grid-cols-2'>
             {weights.map((item, key) => (<Grid key={key} item={item}/>))}
           </div>
         }
 
         {toShow &&
-            <div className="flex-1">
+          <div className="flex-1">
             <div 
             onClick={handleBackButtom}
-            className="absolute bg-cyan-700 rounded-full w-20 h-20 flex justify-center items-center cursor-pointer -ml-9 mt-36">
+            className="absolute bg-cyan-700 flex justify-center items-center cursor-pointer w-14 h-14 mt-0 ml-0 rounded-lg 
+            lg:-ml-9 lg:mt-36 lg:rounded-full lg:w-20 lg:h-20">
               <Image
               src="/leftarrow.png"
               alt="Presentation logo"
@@ -74,7 +75,7 @@ export const CalculatorApplication = () => {
               height={25}/>
             </div>
             <Grid item={toShow}/>
-          </div>
+        </div>
         }
       </div>
     </>

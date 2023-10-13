@@ -7,7 +7,7 @@ const Page = () => {
     <div className="container mx-auto px-4">
       <Header/>
 
-      <div className="flex mx-auto">
+      <div className="flex-col lg:flex lg:flex-row ">
         <CalculatorApplication/>
       </div>
     </div>
