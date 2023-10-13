@@ -24,9 +24,9 @@ export const Grid = ({item}: Props) => {
       </div>
 
       <div className='text-xl font-semibold mt-3'>{item.title}</div>
-      <div className='text-xs mt-2'>
-        <>IMC entre <strong>{item.imc[0]}</strong> e <strong>{item.imc[1]}</strong></>
-      </div>
+      <div className='text-xs mt-2'>IMC entre <strong>{item.imc[0]}</strong> e <strong>{item.imc[1]}</strong></div>
+      {item.yourImc && <div className='text-lg mt-5'>Seu IMC é de {item.yourImc} kg/m²</div>}
+      
     </div>
   )
 }

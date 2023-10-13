@@ -1,6 +1,9 @@
 "use client"
-import { Weight, calculateImc } from "@/helper/bmiCalculation";
+import Image from "next/image";
 import { useState } from "react";
+
+import { Weight, calculateImc, weights } from "@/helper/bmiCalculation";
+import { Grid } from "./gridItem";
 
 export const CalculatorApplication = () => {
   const [heightField, setHeightField] = useState<number>(0);
@@ -10,6 +13,12 @@ export const CalculatorApplication = () => {
   const handleCalculateButton = () => {
   if(heightField && weightField) {setToShow(calculateImc(heightField, weightField))}
   else {alert('Preencha todos os campos!')} }
+
+  const handleBackButtom = () => {
+    setToShow(null);
+    setHeightField(0);
+    setWeightField(0);
+  }
 
   return (
     <>
@@ -43,7 +52,28 @@ export const CalculatorApplication = () => {
         </button>
       </div>
 
-      
+      <div className="flex flex-1 ml-10 justify-center items-center" >
+        {!toShow &&
+          <div className='grid gap-5 grid-cols-2'>
+            {weights.map((item, key) => (<Grid key={key} item={item}/>))}
+          </div>
+        }
+
+        {toShow &&
+            <div className="flex-1">
+            <div 
+            onClick={handleBackButtom}
+            className="absolute bg-cyan-700 rounded-full w-20 h-20 flex justify-center items-center cursor-pointer -ml-9 mt-36">
+              <Image
+              src="/leftarrow.png"
+              alt="Presentation logo"
+              width={25}
+              height={25}/>
+            </div>
+            <Grid item={toShow}/>
+          </div>
+        }
+      </div>
     </>
   )
 }
