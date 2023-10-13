@@ -36,17 +36,20 @@ export const CalculatorApplication = () => {
           placeholder='Qual sua altura em metros? (Ex: 1.68)'
           value={heightField > 0 ? heightField : ''}
           onChange={e => setHeightField(parseFloat(e.target.value))}
-          className="w-full py-5 border border-transparent border-b-cyan-700 placeholder:text-slate-900 text-slate-900 outline-0 text-base"/>
+          disabled={toShow ? true : false}
+          className="disabled:opacity-50 w-full py-5 border border-transparent border-b-cyan-700 placeholder:text-slate-900 text-slate-900 outline-0 text-base"/>
           <input
           type="number"
           placeholder='Qual seu peso em kg? (Ex: 68.2)'
           value={weightField > 0 ? weightField : ''}
+          disabled={toShow ? true : false}
           onChange={e => setWeightField(parseFloat(e.target.value))}
-          className="w-full py-5 border border-transparent border-b-cyan-700 placeholder:text-slate-900 text-slate-900 outline-0 text-base"/>
+          className="disabled:opacity-50 w-full py-5 border border-transparent border-b-cyan-700 placeholder:text-slate-900 text-slate-900 outline-0 text-base"/>
         </div>
         
         <button
-        className="bg-cyan-700 text-white rounded-xl py-4 w-full hover:bg-cyan-600 duration-700"
+        disabled={toShow ? true : false}
+        className="disabled:opacity-50 bg-cyan-700 text-white rounded-xl py-4 w-full hover:bg-cyan-600 duration-700"
         onClick={handleCalculateButton}>
           Calcular IMC
         </button>
