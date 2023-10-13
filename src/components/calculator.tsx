@@ -1,10 +1,16 @@
 "use client"
+import { Weight, calculateImc } from "@/helper/bmiCalculation";
 import { useState } from "react";
 
 export const CalculatorApplication = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
-  
+  const [toShow, setToShow] = useState<Weight | null>(null);
+
+  const handleCalculateButton = () => {
+  if(heightField && weightField) {setToShow(calculateImc(heightField, weightField))}
+  else {alert('Preencha todos os campos!')} }
+
   return (
     <>
       <div className="flex-1 mr-10">
@@ -31,10 +37,13 @@ export const CalculatorApplication = () => {
         </div>
         
         <button
-        className="bg-cyan-700 text-white rounded-xl py-4 w-full hover:bg-cyan-600 duration-700">
+        className="bg-cyan-700 text-white rounded-xl py-4 w-full hover:bg-cyan-600 duration-700"
+        onClick={handleCalculateButton}>
           Calcular IMC
         </button>
       </div>
+
+      
     </>
   )
 }
